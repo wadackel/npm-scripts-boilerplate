@@ -5,7 +5,7 @@
   "description": "Application boilerplate using npm scripts",
   "scripts": {
     "start": "parallelshell 'npm run server' 'npm run watch' 'npm run jade:watch'",
-    "build": "npm run clean && npm run mkdir && npm run lint && npm run build:js && npm run build:css",
+    "build": "npm run clean && npm run mkdir && npm run lint && npm run jade && npm run build:js && npm run build:css && npm run copy",
     "build:js": "npm run browserify && npm run uglify",
     "build:css": "npm run scss && npm run autoprefixer && npm run cssnano",
     "watch": "parallelshell 'npm run watch:js' 'npm run watch:css'",
@@ -28,7 +28,8 @@
     "stylestats": "stylestats dist/css/",
     "uglify": "uglifyjs dist/js/app.bundle.js -o dist/js/app.bundle.js",
     "mkdir": "mkdirp dist/css dist/js logs",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "copy": "ncp assets dist"
   },
   "repository": {
     "type": "git",
@@ -58,6 +59,7 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
+    "ncp": "^2.0.0",
     "node-sass": "^3.4.2",
     "parallelshell": "^2.0.0",
     "phantomjs": "^2.1.3",
