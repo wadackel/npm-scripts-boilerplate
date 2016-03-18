@@ -19,7 +19,7 @@
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint src/js",
     "lint:css": "sass-lint -v",
-    "server": "browser-sync start --server 'dist' --files '**/*' --no-open",
+    "server": "browser-sync start --server 'dist' --files 'dist/**/*' --no-open",
     "jade": "jade src -o dist -O config.json -P",
     "jade:watch": "jade src -o dist -O config.json -P -w",
     "browserify": "browserify src/js/app.js -o dist/js/app.bundle.js -t [ babelify ]",
